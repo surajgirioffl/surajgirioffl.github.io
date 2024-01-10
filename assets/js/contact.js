@@ -54,8 +54,8 @@ document.querySelector('button[type="submit"]').addEventListener('click', () => 
     if (validateFormData()) {
         emailjs.send('service_gee98ws', 'template_oiozxsa', templateParams = fetchFormData(), publicKey)
             .then((response) => {
+                document.getElementsByClassName('loading')[0].style.display = 'none';
                 if (response.status == 200) {
-                    document.getElementById('custom-error-message').style.display = 'none';
                     console.log(document.getElementById('custom-error-message'))
                     document.getElementsByClassName('sent-message')[0].style.display = 'block';
                 }
@@ -65,6 +65,9 @@ document.querySelector('button[type="submit"]').addEventListener('click', () => 
                 }
             }
             )
+        document.getElementsByClassName('sent-message')[0].style.display = 'none';
+        document.getElementById('custom-error-message').style.display = 'none';
+        document.getElementsByClassName('loading')[0].style.display = 'block';
     }
     else {
         document.getElementById('custom-error-message').style.display = 'block';
