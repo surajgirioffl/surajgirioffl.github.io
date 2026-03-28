@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Suraj Kumar Giri</title>
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .resume-view-toggle {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .view-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text2);
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .view-btn.active, .view-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(0,255,170,0.05);
+    }
+    .pdf-viewer {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--surface);
+    }
+    .pdf-viewer iframe {
+      width: 100%;
+      height: 80vh;
+      border: none;
+      display: block;
+    }
+    .pdf-fallback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px;
+      gap: 16px;
+      text-align: center;
+    }
+    /* Resume HTML view */
+    .resume-doc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 48px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .resume-doc-header {
+      text-align: center;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+    .resume-doc-name {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+    .resume-doc-title {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+    .resume-doc-contact {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .resume-doc-contact a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text2);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color var(--transition);
+    }
+    .resume-doc-contact a:hover { color: var(--accent); }
+    .resume-section {
+      margin-bottom: 36px;
+    }
+    .resume-section-title {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .resume-section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .resume-entry {
+      margin-bottom: 20px;
+    }
+    .resume-entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .resume-entry-title {
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+    .resume-entry-period {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+    }
+    .resume-entry-sub {
+      font-size: 0.84rem;
+      color: var(--text2);
+      margin-bottom: 6px;
+    }
+    .resume-entry-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .resume-entry-points li {
+      display: flex;
+      gap: 8px;
+      font-size: 0.84rem;
+      color: var(--text2);
+      line-height: 1.7;
+    }
+    .resume-entry-points li::before {
+      content: '•';
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .resume-skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .resume-skill-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text2);
+    }
+    .hidden { display: none; }
+
+    @media (max-width: 600px) {
+      .resume-doc { padding: 24px 16px; }
+      .resume-entry-header { flex-direction: column; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-brand">suraj<span>.</span>dev</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="resume.html" class="active">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Page Header -->
+<div style="padding: 140px 0 60px; background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">My Background</div>
+    <h1 class="section-title">Resume</h1>
+    <p style="color: var(--text2); font-size: 1.05rem; max-width: 580px;">View my full resume below or download the PDF version.</p>
+    <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+      <a href="static/resume.pdf" target="_blank" class="btn btn-primary">
+        <i class="fa-solid fa-eye"></i> Open PDF Resume
+      </a>
+      <a href="static/resume.pdf" download class="btn btn-outline">
+        <i class="fa-solid fa-download"></i> Download PDF
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Resume Content -->
+<section style="background: var(--bg); padding: 60px 0 100px;">
+  <div class="container">
+
+    <!-- View Toggle -->
+    <div class="resume-view-toggle">
+      <button class="view-btn active" id="btnHtml" onclick="showView('html')">
+        <i class="fa-solid fa-file-code"></i> Web View
+      </button>
+      <button class="view-btn" id="btnPdf" onclick="showView('pdf')">
+        <i class="fa-solid fa-file-pdf"></i> PDF View
+      </button>
+    </div>
+
+    <!-- HTML Resume View -->
+    <div id="viewHtml">
+      <div class="resume-doc">
+        <!-- Header -->
+        <div class="resume-doc-header">
+          <div class="resume-doc-name">Suraj Kumar Giri</div>
+          <div class="resume-doc-title">Python Developer · Automation Expert · Web Developer</div>
+          <div class="resume-doc-contact">
+            <a href="mailto:surajgirioffl@gmail.com"><i class="fa-solid fa-envelope"></i> surajgirioffl@gmail.com</a>
+            <a href="tel:+918227974640"><i class="fa-solid fa-phone"></i> +91 8227974640</a>
+            <a href="https://linkedin.com/in/surajgirioffl" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/surajgirioffl" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://surajgirioffl.github.io" target="_blank"><i class="fa-solid fa-globe"></i> Portfolio</a>
+            <a href="https://www.geeksforgeeks.org/user/surajgirioffl/" target="_blank"><i class="fa-solid fa-code"></i> GFG</a>
+          </div>
+        </div>
+
+        <!-- Profile Summary -->
+        <div class="resume-section">
+          <div class="resume-section-title">Profile Summary</div>
+          <ul class="resume-entry-points">
+            <li>MCA student and freelance Python developer with 2+ years of experience in web development, automation, and API integration.</li>
+            <li>Strong problem-solving and analytical skills with 350+ DSA problems solved across LeetCode, GFG, and CodeChef.</li>
+            <li>Strong foundation in Flask, Django, Selenium, and cloud deployment (AWS, PythonAnywhere, cPanel).</li>
+            <li>Delivered production-ready Python solutions to clients in USA, Singapore, and India.</li>
+            <li>Passionate about building scalable, efficient applications for real-world impact.</li>
+          </ul>
+        </div>
+
+        <!-- Skills -->
+        <div class="resume-section">
+          <div class="resume-section-title">Technical Skills</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text2); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">Languages</div>
+              <div class="resume-skills-row">
+                <span class="resume-skill-tag">Python</span>
+                <span class="resume-skill-tag">JavaScript</span>
+                <span class="resume-skill-tag">SQL</span>
+                <span class="resume-skill-tag">HTML/CSS</span>
+                <span class="resume-skill-tag">C</span>
+                <span class="resume-skill-tag">C++</span>
+              </div>
+            </div>
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text2); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">Frameworks & Libraries</div>
+              <div class="resume-skills-row">
+                <span class="resume-skill-tag">Flask</span>
+                <span class="resume-skill-tag">Django</span>
+                <span class="resume-skill-tag">Selenium</span>
+                <span class="resume-skill-tag">BeautifulSoup</span>
+                <span class="resume-skill-tag">Pandas</span>
+                <span class="resume-skill-tag">NumPy</span>
+                <span class="resume-skill-tag">Pillow</span>
+                <span class="resume-skill-tag">Tkinter</span>
+                <span class="resume-skill-tag">Jinja2</span>
+                <span class="resume-skill-tag">OpenCV</span>
+                <span class="resume-skill-tag">MediaPipe</span>
+                <span class="resume-skill-tag">Scikit-learn</span>
+                <span class="resume-skill-tag">Bootstrap</span>
+                <span class="resume-skill-tag">SQLAlchemy</span>
+              </div>
+            </div>
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text2); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">Databases</div>
+              <div class="resume-skills-row">
+                <span class="resume-skill-tag">MySQL</span>
+                <span class="resume-skill-tag">SQLite</span>
+                <span class="resume-skill-tag">MongoDB</span>
+              </div>
+            </div>
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text2); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">Cloud & Tools</div>
+              <div class="resume-skills-row">
+                <span class="resume-skill-tag">AWS EC2</span>
+                <span class="resume-skill-tag">Git/GitHub</span>
+                <span class="resume-skill-tag">Linux</span>
+                <span class="resume-skill-tag">cPanel</span>
+                <span class="resume-skill-tag">PythonAnywhere</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="resume-section">
+          <div class="resume-section-title">Professional Experience</div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <div class="resume-entry-title">Python Developer · Web Developer · Scraping & Automation Expert</div>
+              <div class="resume-entry-period">January 2022 — Present</div>
+            </div>
+            <div class="resume-entry-sub">Freelance · Remote · International Clients</div>
+            <ul class="resume-entry-points">
+              <li>Designed and delivered Python automation suites for AI content generation platforms (client: AIT INC, USA).</li>
+              <li>Built stock market scraping & reporting system deployed on AWS EC2 for daily automated emails (client: Alen, Singapore).</li>
+              <li>Developed full-stack code submission web apps with live execution engine using Flask + Pyodide (client: Aniket, India).</li>
+              <li>Created Magzter purchase automation with Google Sheets API integration (client: Naveen, India).</li>
+              <li>Built WordPress post image generation API with Flask, deployed on cPanel (client: Shobhit, India).</li>
+              <li>Numerous web scraping, scripting, and automation projects for various clients using Selenium, BeautifulSoup, Requests, and Pandas.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="resume-section">
+          <div class="resume-section-title">Key Projects</div>
+
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <div class="resume-entry-title">Driver Drowsiness Detection System</div>
+              <div class="resume-entry-period">June 2025 — July 2025</div>
+            </div>
+            <ul class="resume-entry-points">
+              <li>Desktop app using computer vision & fuzzy logic ML to detect driver drowsiness in real-time.</li>
+              <li><strong>Stack:</strong> Python, OpenCV, MediaPipe, Scikit-learn, Scikit-Fuzzy, NumPy, Pandas, Tkinter</li>
+            </ul>
+          </div>
+
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <div class="resume-entry-title">AI Generators Automation Suite <span style="font-size:0.75rem; color: var(--accent);">(AIT INC, USA)</span></div>
+              <div class="resume-entry-period">May 2024 — July 2024</div>
+            </div>
+            <ul class="resume-entry-points">
+              <li>Advanced browser automation with CLI & GUI for image2video, text2video, text2text, image2text AI generations.</li>
+              <li><strong>Stack:</strong> Python, Selenium, Pandas, Requests, Toga, OpenpyXL, SQLite, JSON, ORM</li>
+            </ul>
+          </div>
+
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <div class="resume-entry-title">Stock Market Volume & Margin Scraping <span style="font-size:0.75rem; color: var(--accent);">(Alen, Singapore)</span></div>
+              <div class="resume-entry-period">Jan 2024 — Feb 2024</div>
+            </div>
+            <ul class="resume-entry-points">
+              <li>Automated stock market data scraping with AWS EC2 scheduling and daily email report delivery.</li>
+              <li><strong>Stack:</strong> Python, Pandas, NumPy, Selenium, Requests, BS4, AWS, Email Automation</li>
+            </ul>
+          </div>
+
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <div class="resume-entry-title">Code Submission System <span style="font-size:0.75rem; color: var(--accent);">(Aniket, Hyderabad)</span></div>
+              <div class="resume-entry-period">Nov 2023 — Dec 2023</div>
+            </div>
+            <ul class="resume-entry-points">
+              <li>Full-stack web app for Python & JS code submission with live in-browser execution. Deployed on AWS.</li>
+              <li><strong>Stack:</strong> Flask, Pyodide, CodeMirror, OAuth, Jinja2, JSON, AWS, HTML, CSS, Bootstrap</li>
+            </ul>
+          </div>
+
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <div class="resume-entry-title">WordPress Post Image Generator <span style="font-size:0.75rem; color: var(--accent);">(Shobhit, Bangalore)</span></div>
+              <div class="resume-entry-period">Sep 2023 — Oct 2023</div>
+            </div>
+            <ul class="resume-entry-points">
+              <li>Flask API to fetch WordPress posts, generate quote images using Pillow, and embed them back into posts. Deployed on cPanel.</li>
+              <li><strong>Stack:</strong> Python, Flask, Selenium, BeautifulSoup, Pillow, OpenCV, PHP, WordPress</li>
+            </ul>
+          </div>
+
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <div class="resume-entry-title">College Department Management System</div>
+              <div class="resume-entry-period">Oct 2022 — May 2023</div>
+            </div>
+            <ul class="resume-entry-points">
+              <li>Web portal for BCA department of RDS College with admin panel, visitor tracking, and PythonAnywhere deployment.</li>
+              <li><strong>Stack:</strong> Flask, Flask-Admin, Jinja2, MySQL, SQLite3, Bootstrap, Git</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="resume-section">
+          <div class="resume-section-title">Education</div>
+
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <div class="resume-entry-title">Master in Computer Application (MCA)</div>
+              <div class="resume-entry-period">2024 — Present</div>
+            </div>
+            <div class="resume-entry-sub">Central University of Haryana, Mahendragarh</div>
+            <ul class="resume-entry-points">
+              <li>CGPA: 8.77 | 1st Semester Class Topper | GFG University Rank #6</li>
+            </ul>
+          </div>
+
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <div class="resume-entry-title">Bachelor in Computer Application (BCA)</div>
+              <div class="resume-entry-period">2020 — 2023</div>
+            </div>
+            <div class="resume-entry-sub">Ram Dayalu Singh College, Muzaffarpur · BRABU</div>
+            <ul class="resume-entry-points">
+              <li>84% · College Topper</li>
+            </ul>
+          </div>
+
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <div class="resume-entry-title">Intermediate (Class XII) · CBSE</div>
+              <div class="resume-entry-period">2017 — 2019</div>
+            </div>
+            <div class="resume-entry-sub">Doon Senior Secondary School, Muzaffarpur</div>
+            <ul class="resume-entry-points">
+              <li>82.6% · Class Topper</li>
+            </ul>
+          </div>
+
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <div class="resume-entry-title">Matriculation (Class X) · CBSE</div>
+              <div class="resume-entry-period">2016 — 2017</div>
+            </div>
+            <div class="resume-entry-sub">Doon Senior Secondary School, Muzaffarpur</div>
+            <ul class="resume-entry-points">
+              <li>10 CGPA · School Topper</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="resume-section">
+          <div class="resume-section-title">Achievements</div>
+          <ul class="resume-entry-points">
+            <li>Solved 350+ DSA problems across LeetCode, GeeksForGeeks, and CodeChef.</li>
+            <li>Ranked 6th in university on GeeksForGeeks platform (CUH leaderboard).</li>
+            <li>Delivered production Python projects to international clients across 3 countries.</li>
+            <li>Class/College/School Topper at every academic level.</li>
+          </ul>
+        </div>
+
+        <!-- Download CTA -->
+        <div style="border-top: 1px solid var(--border); padding-top: 28px; margin-top: 8px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+          <a href="static/resume.pdf" target="_blank" class="btn btn-primary">
+            <i class="fa-solid fa-eye"></i> Open PDF
+          </a>
+          <a href="static/resume.pdf" download class="btn btn-outline">
+            <i class="fa-solid fa-download"></i> Download PDF
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PDF View -->
+    <div id="viewPdf" class="hidden">
+      <div class="pdf-viewer">
+        <iframe src="static/resume.pdf" title="Resume PDF">
+          <div class="pdf-fallback">
+            <i class="fa-solid fa-file-pdf" style="font-size: 3rem; color: var(--accent);"></i>
+            <p style="color: var(--text2);">Your browser doesn't support PDF embedding.</p>
+            <a href="static/resume.pdf" target="_blank" class="btn btn-primary"><i class="fa-solid fa-download"></i> Open Resume PDF</a>
+          </div>
+        </iframe>
+      </div>
+      <p style="text-align:center; color: var(--text2); font-size: 0.82rem; margin-top: 12px; font-family: var(--font-mono);">
+        Place your resume PDF at <code style="color: var(--accent);">static/resume.pdf</code>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-brand">suraj<span>.</span>dev</div>
+    <p class="footer-text">© 2025 Suraj Kumar Giri. All Rights Reserved.</p>
+    <div class="footer-social">
+      <a href="https://github.com/surajgirioffl" target="_blank" class="footer-social-link"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com/in/surajgirioffl" target="_blank" class="footer-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="mailto:surajgirioffl@gmail.com" class="footer-social-link"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="static/main.js"></script>
+<script>
+  function showView(v) {
+    document.getElementById('viewHtml').classList.toggle('hidden', v !== 'html');
+    document.getElementById('viewPdf').classList.toggle('hidden', v !== 'pdf');
+    document.getElementById('btnHtml').classList.toggle('active', v === 'html');
+    document.getElementById('btnPdf').classList.toggle('active', v === 'pdf');
+  }
+</script>
+</body>
+</html>

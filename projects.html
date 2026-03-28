@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Suraj Kumar Giri</title>
+  <meta name="description" content="Portfolio of Python projects: automation, web scraping, Flask apps, ML systems — delivered to clients in USA, Singapore, and India." />
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-brand">suraj<span>.</span>dev</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Page Header -->
+<div style="padding: 140px 0 60px; background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">My Work</div>
+    <h1 class="section-title">Projects</h1>
+    <p style="color: var(--text2); font-size: 1.05rem; max-width: 600px;">
+      Real-world projects built for clients across USA, Singapore, and India. Each represents a problem solved with clean, efficient Python.
+    </p>
+  </div>
+</div>
+
+<!-- ░░ PROJECTS ░░ -->
+<section id="projects" style="background: var(--bg);">
+  <div class="container">
+
+    <!-- Filter Buttons -->
+    <div class="projects-filter" style="margin-bottom: 40px;">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="automation">Automation</button>
+      <button class="filter-btn" data-filter="web">Web Dev</button>
+      <button class="filter-btn" data-filter="scraping">Scraping</button>
+      <button class="filter-btn" data-filter="ml">ML / CV</button>
+      <button class="filter-btn" data-filter="client">Client Work</button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid" id="projectsGrid">
+
+      <!-- 1: Driver Drowsiness -->
+      <div class="project-card fade-in" data-tags="ml">
+        <div class="project-header">
+          <div class="project-icon">🚗</div>
+          <div class="project-links">
+            <a href="https://github.com/surajgirioffl" target="_blank" class="project-link-btn" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-period">June 2025 — July 2025</div>
+          <h3 class="project-title">Driver Drowsiness Detection System</h3>
+          <p class="project-desc">
+            Desktop application using computer vision & machine learning (Fuzzy Logic) to detect real-time signs of driver drowsiness. Monitors facial landmarks to detect eye closure and head drooping patterns with high accuracy.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">OpenCV</span>
+            <span class="stack-tag">MediaPipe</span>
+            <span class="stack-tag">Scikit-learn</span>
+            <span class="stack-tag">Scikit-Fuzzy</span>
+            <span class="stack-tag">NumPy</span>
+            <span class="stack-tag">Pandas</span>
+            <span class="stack-tag">Tkinter</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: AI Generators Suite -->
+      <div class="project-card fade-in" data-tags="automation client">
+        <div class="project-header">
+          <div class="project-icon">🤖</div>
+          <div class="project-links">
+            <a href="https://github.com/surajgirioffl" target="_blank" class="project-link-btn" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-period">May 2024 — July 2024</div>
+          <h3 class="project-title">AI Generators Automation Suite</h3>
+          <div class="project-client"><span>🇺🇸</span> AIT INC — Atlanta, USA</div>
+          <p class="project-desc">
+            Advanced browser automation suite with both CLI & GUI supporting image-to-video, text-to-video, text-to-text, and image-to-text AI generation across numerous AI platforms. Delivered for a US company.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Selenium</span>
+            <span class="stack-tag">Pandas</span>
+            <span class="stack-tag">Requests</span>
+            <span class="stack-tag">Toga (GUI)</span>
+            <span class="stack-tag">OpenpyXL</span>
+            <span class="stack-tag">SQLite</span>
+            <span class="stack-tag">JSON</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: Stock Scraping -->
+      <div class="project-card fade-in" data-tags="scraping automation client">
+        <div class="project-header">
+          <div class="project-icon">📈</div>
+          <div class="project-links">
+            <a href="https://github.com/surajgirioffl" target="_blank" class="project-link-btn" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-period">Jan 2024 — Feb 2024</div>
+          <h3 class="project-title">Stock Market Volume & Margin Scraping</h3>
+          <div class="project-client"><span>🇸🇬</span> Alen — Singapore</div>
+          <p class="project-desc">
+            Automated daily scraping of stock market volume and margin data, integrated with AWS EC2 for scheduling and automated email reports on volume & margin trends delivered each morning.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Pandas</span>
+            <span class="stack-tag">NumPy</span>
+            <span class="stack-tag">Selenium</span>
+            <span class="stack-tag">BeautifulSoup</span>
+            <span class="stack-tag">AWS EC2</span>
+            <span class="stack-tag">Email Automation</span>
+            <span class="stack-tag">Requests</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: Code Submission System -->
+      <div class="project-card fade-in" data-tags="web client">
+        <div class="project-header">
+          <div class="project-icon">💻</div>
+          <div class="project-links">
+            <a href="https://github.com/surajgirioffl" target="_blank" class="project-link-btn" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-period">Nov 2023 — Dec 2023</div>
+          <h3 class="project-title">Code Submission System</h3>
+          <div class="project-client"><span>🇮🇳</span> Aniket — Hyderabad, India</div>
+          <p class="project-desc">
+            Full-stack web application for code submission and live execution in Python & JavaScript. Features OAuth login, CodeMirror editor integration, and deployed on AWS.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Flask</span>
+            <span class="stack-tag">Pyodide</span>
+            <span class="stack-tag">CodeMirror</span>
+            <span class="stack-tag">OAuth</span>
+            <span class="stack-tag">Jinja2</span>
+            <span class="stack-tag">AWS</span>
+            <span class="stack-tag">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: Magzter Automation -->
+      <div class="project-card fade-in" data-tags="automation client">
+        <div class="project-header">
+          <div class="project-icon">📰</div>
+          <div class="project-links">
+            <a href="https://github.com/surajgirioffl" target="_blank" class="project-link-btn" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-period">Nov 2023 — Dec 2023</div>
+          <h3 class="project-title">Magzter Purchase Automation</h3>
+          <div class="project-client"><span>🇮🇳</span> Naveen — Jaipur, India</div>
+          <p class="project-desc">
+            End-to-end purchase automation for Magzter including email login, Magzter authentication, Google Sheets integration for order data, and automated credit card form filling.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Selenium</span>
+            <span class="stack-tag">Google Sheets API</span>
+            <span class="stack-tag">BeautifulSoup</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6: WordPress Image Generator -->
+      <div class="project-card fade-in" data-tags="web automation client">
+        <div class="project-header">
+          <div class="project-icon">🖼️</div>
+          <div class="project-links">
+            <a href="https://github.com/surajgirioffl" target="_blank" class="project-link-btn" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-period">Sep 2023 — Oct 2023</div>
+          <h3 class="project-title">WordPress Post Image Generator</h3>
+          <div class="project-client"><span>🇮🇳</span> Shobhit — Bangalore, India</div>
+          <p class="project-desc">
+            Flask-based API tool that fetches WordPress posts, extracts quoted text, auto-generates quote images using Pillow, and embeds them back into post content. Deployed on cPanel.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Flask</span>
+            <span class="stack-tag">Selenium</span>
+            <span class="stack-tag">BeautifulSoup</span>
+            <span class="stack-tag">Pillow</span>
+            <span class="stack-tag">OpenCV</span>
+            <span class="stack-tag">PHP</span>
+            <span class="stack-tag">WordPress API</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7: College Portal -->
+      <div class="project-card fade-in" data-tags="web">
+        <div class="project-header">
+          <div class="project-icon">🏫</div>
+          <div class="project-links">
+            <a href="https://github.com/surajgirioffl" target="_blank" class="project-link-btn" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-period">Oct 2022 — May 2023</div>
+          <h3 class="project-title">College Department Management System</h3>
+          <p class="project-desc">
+            Full-featured web portal for the BCA department of RDS College, Muzaffarpur. Features Flask-Admin panel, daily visitor tracking, MySQL + SQLite storage, deployed on PythonAnywhere.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Flask</span>
+            <span class="stack-tag">Flask-Admin</span>
+            <span class="stack-tag">MySQL</span>
+            <span class="stack-tag">SQLite3</span>
+            <span class="stack-tag">Jinja2</span>
+            <span class="stack-tag">Bootstrap</span>
+            <span class="stack-tag">PythonAnywhere</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8: Various Scraping -->
+      <div class="project-card fade-in" data-tags="scraping automation">
+        <div class="project-header">
+          <div class="project-icon">🕷️</div>
+          <div class="project-links">
+            <a href="https://github.com/surajgirioffl" target="_blank" class="project-link-btn" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-period">2022 — Ongoing</div>
+          <h3 class="project-title">Web Scraping & Automation Portfolio</h3>
+          <p class="project-desc">
+            A collection of various scraping and scripting projects for multiple clients — extracting structured data, automating repetitive workflows, building report pipelines, and integrating APIs.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Selenium</span>
+            <span class="stack-tag">BeautifulSoup</span>
+            <span class="stack-tag">Requests</span>
+            <span class="stack-tag">Pandas</span>
+            <span class="stack-tag">NumPy</span>
+            <span class="stack-tag">Scrapy</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid -->
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding: 60px 0 100px; background: var(--bg2);">
+  <div class="container">
+    <div class="resume-banner fade-in">
+      <div class="resume-banner-text">
+        <h3>Have a project in mind?</h3>
+        <p>I'm open to automation, scraping, Flask/Django apps, and Python scripting projects worldwide.</p>
+      </div>
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Start a Project</a>
+        <a href="services.html" class="btn btn-outline"><i class="fa-solid fa-list"></i> View Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-brand">suraj<span>.</span>dev</div>
+    <p class="footer-text">© 2025 Suraj Kumar Giri. All Rights Reserved.</p>
+    <div class="footer-social">
+      <a href="https://github.com/surajgirioffl" target="_blank" class="footer-social-link"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com/in/surajgirioffl" target="_blank" class="footer-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="mailto:surajgirioffl@gmail.com" class="footer-social-link"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="static/main.js"></script>
+<script>
+  // Filter logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        const tags = card.dataset.tags || '';
+        if (filter === 'all' || tags.includes(filter)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

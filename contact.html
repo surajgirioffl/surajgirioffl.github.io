@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Suraj Kumar Giri</title>
+  <meta name="description" content="Get in touch with Suraj Kumar Giri for Python development, automation, web scraping, and freelance projects." />
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .social-profiles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .social-profile-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      transition: all var(--transition);
+    }
+    .social-profile-card:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .social-profile-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+    .social-profile-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .social-profile-handle {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text2);
+    }
+    .form-success {
+      display: none;
+      background: rgba(0,255,170,0.07);
+      border: 1px solid rgba(0,255,170,0.2);
+      border-radius: 10px;
+      padding: 20px 24px;
+      text-align: center;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      margin-top: 16px;
+    }
+    .availability-info {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-top: 20px;
+    }
+    .avail-title {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+    .avail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .avail-item {
+      font-size: 0.82rem;
+      color: var(--text2);
+      display: flex;
+      gap: 6px;
+    }
+    .avail-item span { color: var(--accent); }
+    @media (max-width: 600px) {
+      .social-profiles { grid-template-columns: 1fr; }
+      .avail-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-brand">suraj<span>.</span>dev</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Page Header -->
+<div style="padding: 140px 0 60px; background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">Let's Work Together</div>
+    <h1 class="section-title">Get In Touch</h1>
+    <p style="color: var(--text2); font-size: 1.05rem; max-width: 560px;">
+      Have a project in mind? I respond to all messages within 24 hours, across any timezone.
+    </p>
+  </div>
+</div>
+
+<!-- ░░ CONTACT ░░ -->
+<section id="contact" style="background: var(--bg); padding: 80px 0 100px;">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Left: Info -->
+      <div class="contact-info fade-in">
+        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 16px;">Let's build something great together.</h2>
+        <p class="contact-pitch">
+          I'm actively looking for <strong>international freelance projects</strong> in Python automation, web scraping, Flask/Django web apps, and computer vision. Whether you're a startup in San Francisco, a business in Singapore, or an individual with a great idea — I'd love to hear from you.
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:surajgirioffl@gmail.com" class="contact-link">
+            <div class="contact-link-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-val">surajgirioffl@gmail.com</div>
+            </div>
+          </a>
+          <a href="tel:+918227974640" class="contact-link">
+            <div class="contact-link-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <div class="contact-link-label">Phone / WhatsApp</div>
+              <div class="contact-link-val">+91 8227974640</div>
+            </div>
+          </a>
+          <a href="https://github.com/surajgirioffl" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><i class="fa-brands fa-github"></i></div>
+            <div>
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-val">github.com/surajgirioffl</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/surajgirioffl" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><i class="fa-brands fa-linkedin"></i></div>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-val">linkedin.com/in/surajgirioffl</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Availability -->
+        <div class="availability-info">
+          <div class="avail-title">Current Availability</div>
+          <div class="avail-grid">
+            <div class="avail-item"><span>✓</span> Freelance Projects</div>
+            <div class="avail-item"><span>✓</span> Remote Work</div>
+            <div class="avail-item"><span>✓</span> International Clients</div>
+            <div class="avail-item"><span>✓</span> Long-term Contracts</div>
+            <div class="avail-item" style="grid-column: span 2; margin-top: 8px; color: var(--text);">
+              <span>🕐</span> Timezone: IST (UTC+5:30) · Async-friendly
+            </div>
+          </div>
+        </div>
+
+        <!-- Social profiles -->
+        <div style="margin-top: 28px;">
+          <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text2); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px;">Also find me on</div>
+          <div class="social-profiles">
+            <a href="https://www.geeksforgeeks.org/user/surajgirioffl/" target="_blank" class="social-profile-card">
+              <div class="social-profile-icon"><i class="fa-solid fa-code"></i></div>
+              <div>
+                <div class="social-profile-name">GeeksForGeeks</div>
+                <div class="social-profile-handle">Rank #6 in CUH</div>
+              </div>
+            </a>
+            <a href="https://leetcode.com/surajgirioffl" target="_blank" class="social-profile-card">
+              <div class="social-profile-icon"><i class="fa-solid fa-terminal"></i></div>
+              <div>
+                <div class="social-profile-name">LeetCode</div>
+                <div class="social-profile-handle">350+ solved</div>
+              </div>
+            </a>
+            <a href="https://www.codechef.com/users/surajgirioffl" target="_blank" class="social-profile-card">
+              <div class="social-profile-icon"><i class="fa-solid fa-utensils"></i></div>
+              <div>
+                <div class="social-profile-name">CodeChef</div>
+                <div class="social-profile-handle">surajgirioffl</div>
+              </div>
+            </a>
+            <a href="https://surajgirioffl.github.io" target="_blank" class="social-profile-card">
+              <div class="social-profile-icon"><i class="fa-solid fa-globe"></i></div>
+              <div>
+                <div class="social-profile-name">Portfolio</div>
+                <div class="social-profile-handle">surajgirioffl.github.io</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="fade-in">
+        <div class="contact-form">
+          <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 24px;">Send Me a Message</h3>
+
+          <form id="contactForm" action="https://formspree.io/f/surajgirioffl@gmail.com" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="name">Your Name</label>
+                <input class="form-input" type="text" id="name" name="name" placeholder="John Smith" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="john@company.com" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="country">Your Country</label>
+              <input class="form-input" type="text" id="country" name="country" placeholder="USA, UK, Singapore..." />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="service">Service Needed</label>
+              <select class="form-select" id="service" name="service">
+                <option value="">Select a service...</option>
+                <option>Browser Automation / Bot</option>
+                <option>Web Scraping / Data Extraction</option>
+                <option>Flask / Django Web App</option>
+                <option>Computer Vision / ML</option>
+                <option>API Development / Integration</option>
+                <option>AWS Deployment / DevOps</option>
+                <option>Python Scripting</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="budget">Estimated Budget (USD)</label>
+              <select class="form-select" id="budget" name="budget">
+                <option value="">Select range...</option>
+                <option>Under $100</option>
+                <option>$100 – $300</option>
+                <option>$300 – $800</option>
+                <option>$800 – $2000</option>
+                <option>$2000+</option>
+                <option>Let's discuss</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Project Details</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Describe your project, what you need, timeline, and any relevant details..." required style="min-height: 140px;"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 16px;">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+
+            <p style="font-size: 0.78rem; color: var(--text2); text-align: center; margin-top: 12px; font-family: var(--font-mono);">
+              I respond within <strong style="color: var(--accent);">24 hours</strong> · All timezones welcome
+            </p>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <i class="fa-solid fa-circle-check" style="font-size: 1.5rem; margin-bottom: 8px; display: block;"></i>
+            Message sent! I'll get back to you within 24 hours.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-brand">suraj<span>.</span>dev</div>
+    <p class="footer-text">© 2025 Suraj Kumar Giri. All Rights Reserved.</p>
+    <div class="footer-social">
+      <a href="https://github.com/surajgirioffl" target="_blank" class="footer-social-link"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com/in/surajgirioffl" target="_blank" class="footer-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="mailto:surajgirioffl@gmail.com" class="footer-social-link"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="static/main.js"></script>
+<script>
+  // Simple client-side form feedback (Formspree handles actual submission)
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    // Let Formspree handle it — just show success after short delay for UX
+    setTimeout(() => {
+      const succ = document.getElementById('formSuccess');
+      succ.style.display = 'block';
+    }, 1000);
+  });
+</script>
+</body>
+</html>
